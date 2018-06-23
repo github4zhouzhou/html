@@ -1,0 +1,199 @@
+/*
+    h1当你为 某个元素应用 CSS 属性时，这些属性不仅会 影响该元素，还会影响其下的分支元素。也 就是说，这些下层的元素继承了其祖先元素 的属性。只不过，它们继承的可不是冷冰冰 的钞票，而是颜色、字体大小这样的东西。
+*/
+
+h1 {
+    /* text color
+    --------------------------*/
+    color: #ff5900;
+    /* background color
+    --------------------------*/
+    background-color: rgba(89, 0, 127, 1);
+    /* 2em 就代表将元素的 左外边距设为元素字号的两倍。
+    --------------------------*/
+    margin-left: 2em;
+    /* 这是个相对大小，取父元素字号的八分之七
+    --------------------------*/
+    font-size: .875em;
+    /* 百分数通常是相对于父元素的。
+    --------------------------*/
+    width: 80%;
+}
+
+img {
+    border: 4px solid blue;
+}
+
+
+/**
+ * 选择器
+ */
+
+
+/* 根据名称
+--------------------------*/
+
+h2 {
+    color: red;
+    /* 30px */
+    text-indent: 2em;
+    /*capitalize; lowercase*/
+    text-transform: capitalize;
+}
+
+h2 {
+    background-color: green;
+    /*小型大写字母的方法*/
+    font-variant: small-caps;
+}
+
+
+/* 根据上下文，这个样式只应 用于 h2 元素中的 em 元素。其他地方的 em 元素不受影响
+--------------------------*/
+
+h2 em {
+    color: red;
+}
+
+
+/* 根据类定义选择器 <label class="error">ID</label>
+--------------------------*/
+
+.error {
+    color: red;
+}
+
+
+/* 根据ID定义选择器 <label id="gaudi">ID</label>
+--------------------------*/
+
+#gaudi {
+    color: red;
+}
+
+
+/* 在这个例子中，选择器仅选择属于 error 类的 strong 元素，而不是属于 error 类的任何元素。除非确有必要，一般不要使用这种方法。
+--------------------------*/
+
+strong.error {
+    color: red;
+}
+
+
+/* 在这个例子中，针对的是所 有具有 title 属性的 a 元素。
+--------------------------*/
+
+a[title] {
+    color: red;
+}
+
+.architect p {
+    /* 包含在 class 等于 architect 的任意元素 里的所有 p 元素
+--------------------------*/
+    color: red;
+}
+
+article p {
+    /* 是任意article祖先的所有p元素，这是三个中特殊性最低的一个 */
+    color: blue;
+}
+
+article.architect p {
+    /* 属于architect类article元素的祖先的任意p元素，是三个中特殊性最高的一个 */
+    color: green;
+}
+
+article>p {
+    /* 这个选择器仅选择 article 元素的 子元素(而非子子元素、子子子元素等)的 p 元素。*/
+    color: greenyellow;
+}
+
+.architect p+p {
+    /* 只有直接跟在同胞 p 元素后面的 p 元素显示为红色。如果要对除第一个段落以外的所有段落进行缩进，相邻同胞结合符就很有用
+--------------------------*/
+    color: grey;
+}
+
+.architect p~label {
+    /* 它可以选择那些并非直接出现在另一同 胞元素后面的同胞元素
+--------------------------*/
+    color: grey;
+}
+
+li:first-child {
+    color: red;
+}
+
+li:last-child {
+    color: green;
+}
+
+li::first-letter {
+    color: blue;
+}
+
+li::first-line {
+    color: greenyellow
+}
+
+a:link {
+    color: red;
+}
+
+a:visited {
+    color: orange;
+}
+
+a:focus {
+    color: purple;
+}
+
+a:hover {
+    color: green;
+}
+
+a:active {
+    color: blue;
+}
+
+
+/* 按属性选择元素
+
+[attribute]             匹配指定属性，不论具体值是什么
+[attribute="value"]     完全匹配指定属性值
+[attribute~="value"]    属性值是以空格分隔的多个单词，其中有一个完全匹配指定值
+[attribute|="value"]    属性值以 value- 打头
+[attribute^="value"]    属性值以 value 开头，value 为完整的单词或单词的一部分
+[attribute$="value"]    属性值以 value 结尾，value 为完整的单词或单词的一部分
+[attribute*="value"]    属性值为指定值的子字符串
+
+--------------------------*/
+
+p[class="redcolor"] {
+    color: red;
+    font-family: "Gill Sans";
+    font-style: italic;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+body {
+    /*替代字体*/
+    font-family: Geneva, Tahoma, sans-serif;
+    font-style: normal;
+    font-family: normal;
+}
+
+h1,
+p {
+    font-family: "Gill Sans";
+    font-style: italic;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.intro {
+    /* 行高
+--------------------------*/
+    line-height: 1.45;
+}

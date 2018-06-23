@@ -1,0 +1,17 @@
+div {
+    background-color: #88b2d2;
+    letter-spacing: 7px;
+    word-spacing: 7px;
+}
+
+.temp {
+    background-image: url('img/v.jpg');
+    background-image: linear-gradient(left, red 100px, yellow 200px);
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    background-attachment: fixed;
+}
+
+h2 {
+    color: red;
+}

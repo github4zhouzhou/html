@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!-- 声明页面为 HTML5 文档 -->
+
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <!-- 除了 title head里的其他元素对页面访问者来说都是不可见的 -->
+    <title>目录</title>
+</head>
+
+<!--页面的主体，设置需要显示的内容-->
+
+<body>
+
+    <!--只在必要时使用 header。大多数情况下，如果使用 h1 ~ h6 能满足需求，就没有 必要用 header 将它包起来。-->
+    <header role="banner">
+        <nav role="navigation">
+            <ul>
+                <!--title属性（说的是属性，不是标签），相当于tooltip，鼠标移上去就会显示出来-->
+                <li><a href="#gaudi" title="table of contents">Barcelona's Architect</a></li>
+                <li lang="es"><a href="#sagrada familia">La Sagrada Família</a></li>
+                <li><a href="#park-guell">Park Guell</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>h1</h1>
+    <h2>h2</h2>
+    <h3>h3</h3>
+    <h4>h4</h4>
+    <h5>h5</h5>
+    <h6>h6</h6>
+
+    <!-- main 元素是 HTML5 新添加的元素。 记住，在一个页面里仅使用一次 -->
+    <main role="main">
+        <!-- section 是具有相似主题的一组内容，通常 包含一个标题。几乎任何新闻网站都会对新闻进行分类。 每个类别都可以标记为一个 section -->
+        <section>
+            <h2>世界这么大，我想去看看</h2>
+
+            <!--有时需要在一段内容外围包一个容器， 从而可以为其应用 CSS 样式或 JavaScript 效果。-->
+            <div>
+                <p>div是一个通用容器。有时需要在一段内容外围包一个容器， 从而可以为其应用 CSS 样式或 JavaScript 效果。 在评估内容的时候，考虑使用 article、section、aside、nav 等元素，却发 现它们从语义上讲都不合适。 这时，你真正需要的是一个通用容器， 一个完全没有任何语义含义的容器。
+                </p>
+            </div>
+
+            <p><strong>Warning: <cite>Do</cite> not approach the zombies <em>under any circumstances</em> </strong>. They may <em>look</em> friendly, but that's just because they want to eat your arm.</p>
+
+            <p><b>Warning: Do not approach the zombies <i>under any circumstances</i> </b>. They may <i>look</i> friendly, but that's just because they want to eat your arm.</p>
+
+            <!--time-->
+            <p>The train arrives at <time>08:45</time> and <time>16:20</time> on <time>2017-03-19</time>.</p>
+            <p><time datetime="2014-10-15">October 15, 2014</time></p>
+
+            <!--abbr 解释缩写词-->
+            <p>But, that's nothing compared to what <abbr>MLB</abbr> (Major LeagueBaseball) did. They gave out free<abbr title="self-contained underwater ➝breathing apparatus">scuba</abbr>gear ➝ during rain delays.</p>
+
+            <!--dfn 定义术语-->
+            <p>The contestant was asked to spell "pleonasm." She requested the definition and was told that <dfn>pleonasm</dfn> means "a redundant word or expression" (Ref: <cite><a href="http://dictionary. reference.com/browse/pleonasm" rel="external">dictionary.com</a></cite>).</p>
+
+            <!--sup 上标-->
+            <p>... Actually, Pablo Casals' real name was <i>Pau</i> Casals, Pau being the Catalan equivalent of Pablo <a href="#footnote-1" title="Read footnote 1"><sup>1</sup></a>.</p>
+
+            <!--sub 下标 锚-->
+            <p>... Pau Casals is remembered in this country for his empassioned speech against nuclear proliferation at the UnitedNations<a href="#footnote-2" title="Read footnote 2"><sub>2</sub> </a> ...</p>
+
+
+            <!--s(同del区分) 元素用以标注不再准确或不再相 关的内容(一般不用于标注编辑内容)-->
+            <ol>
+                <li><ins>2 p.m. (this show just added!) </ins></li>
+                <li><s>5 p.m.</s> SOLD OUT</li>
+                <li><s>8:30 p.m.</s> SOLD OUT</li>
+            </ol>
+
+            <!--代表添加内容的 ins 元素和标 记已删除内容的 del 元素-->
+            <del>
+                <p>Please consider donating one or more of the following items to the village's community center:</p>
+            </del>
+            <ins>
+                <p>Please note that all gifts have been purchased.</p>
+                <p>Thank you <em>so much</em> for your  generous donations!</p>
+            </ins>
+
+            <!--pre 预格 式化的文本可以保持文本固有的换行和空格。不要将 pre 作为逃避以合适的语义 标记内容和用 CSS 控制样式的快捷方式。-->
+            <pre>
+                <code>
+                    function test() {
+                        
+                    }
+                </code>
+            </pre>
+
+            <!--code 元素表示其中的文本是代码或文 件名。-->
+            <p>The <code>showPhoto()</code> function displays the full-size photo of the thumbnail in our <code>&lt;ul id="thumbnail"&gt;</code> carousel list.</p>
+
+            <blockquote>
+                <!--mark 突出显示文本-->
+                <p>Remove the tray from the box. Pierce the overwrap several times with a fork and cook on High for <mark>15 minutes</mark>, rotating it half way through.</p>
+            </blockquote>
+
+            <!--同 div 一样，span 元素是没有任何语义的。 不同的是，span 只适合包围字词或短语内容， 而 div 适合包含块级内容-->
+            <!--在这个例子中，我想对一小块文字指定 不同的语言，但从句子的上下文看，没有一个语义 上适合“La Casa Milà”的 HTML 元素。-->
+            <p>Gaudí's work was essentially useful. <span lang="es">La Casa Milà</span>is an apartment building and <em>real people</em> live there.</p>
+
+            <img src="nothing.jpg" width="300" height="300" alt="当图片无法加载时显示的信息" />
+
+            <a href="http://www.baidu.com" rel="external" title="rel 属性表示连接关系，external 表示外部链接">百度</a>
+
+        </section>
+    </main>
+
+    <!--应该将附注栏内容放在 main 的内容之后-->
+    <aside>
+        <ul>
+            <li>this is aside</li>
+        </ul>
+    </aside>
+
+    <!--不能在 footer 里嵌套 header 或另一个 footer。页脚并不一定要位于所在元素的末 尾，不过通常是这样的。-->
+    <footer>
+        <!--address元素是用以定义与 HTML 页面或页面一部分(如一篇报告或新 文章)有关的作者、相关人士或组织的联系 信息，通常位于页面底部或相关部分内-->
+        <address>
+            Email her at <a href="mailto: traceyw@thepaperofpapers.com"> traceyw@thepaperofpapers.com </a>.
+        </address>
+
+        <p id="footnote-1"><sup>1</sup>It means Paul in English.</p>
+        <p id="footnote-2"><sub>2</sub>In 1963, I believe.</p>
+
+        <p><small>&copy; Copyright All About Gaudí</small></p>
+    </footer>
+
+</body>
+
+</html>

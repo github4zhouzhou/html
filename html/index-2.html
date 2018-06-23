@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>css</title>
+
+    <!--链接样式表-->
+    <link type="type/css" rel="stylesheet" href="/css/layout.css">
+    <!--嵌入样式表-->
+    <style>
+        img {
+            border: 4px solid red;
+        }
+    </style>
+</head>
+
+<!--页面的主体，设置需要显示的内容-->
+
+<body>
+
+    <!--内联样式表-->
+    <img src="img/v.jpg" width="200" height="200" style="border: 4px solid green" />
+
+    <img src="img/v1.jpg" width="530" height="200" />
+
+    <h2> let us go </h2>
+
+    <!-- article.architect p {color: green;} -->
+    <article class="architect">
+        <p>color</p>
+    </article>
+
+    <!-- article p {color: blue;} -->
+    <article>
+        <p>color</p>
+    </article>
+
+    <!-- .architect p {color: red;} -->
+    <section class="architect">
+        <p>color</p>
+    </section>
+
+
+    <article>
+        <p>article child p color</p>
+        <div>
+            <p>other p color</p>
+        </div>
+    </article>
+
+    <!-- .architect p+p {color: grey;} -->
+    <article class="architect">
+        <p>p1</p>
+        <p>p2</p>
+        <div></div>
+        <p>p3</p>
+    </article>
+
+
+    <!-- .architect p~label {color: grey;} -->
+    <article class="architect">
+        <p>p1</p>
+        <label>label1</label>
+        <p>p2</p>
+        <label>label2</label>
+        <label>label3</label>
+    </article>
+
+    <ul>
+        <li lang="es">La Casa Milà</li>
+        <li lang="es">La Sagrada Família</li>
+        <li>College of the Teresians <span lang=➝ "es">(Colegio Teresiano)</span></li>
+        <li>Park Güell</li>
+    </ul>
+
+    <p>Barcelona <a href="http://www.gaudi2002.bcn.es/english/">celebrated</a> the 150th anniversary of Gaudí's birth in 2002.</p>
+
+    <div>
+        <p class="redcolor">p1</p>
+        <p>p2</p>
+    </div>
+</body>
+
+</html>

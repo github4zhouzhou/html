@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- 声明页面为 HTML5 文档 -->
+
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link type="type/css" rel="stylesheet" href="/css/jquery.css">
+    <!-- 除了 title head里的其他元素对页面访问者来说都是不可见的 -->
+    <title>目录</title>
+    <!-- script放置最佳位置以及html执行顺序。
+　　　　html文件是自上而下的执行方式，但引入的css和javascript的顺序有所不同，css引入执行加载时，程序仍然往下执行，
+       而执行到<script>脚本是则中断线程，待该script脚本执行结束之后程序才继续往下执行。
+　　　　所以，大部分网上讨论是将script脚本放在<body>之后，那样dom的生成就不会因为长时间执行script脚本而延迟阻塞，加快了页面的加载速度。
+　　　　但又不能将所有的script放在body之后，因为有一些页面的效果的实现，是需要预先动态的加载一些js脚本。所以这些脚本应该放在<body>之前。
+　　　　其次，不能将需要访问dom元素的js放在body之前，因为此时还没有开始生成dom，所以在body之前的访问dom元素的js会出错，或者无效。 -->
+    <script src="js/jquery.js"></script>
+
+</head>
+
+<!--页面的主体，设置需要显示的内容-->
+
+<body>
+
+    <h1 class="hide_all">点击隐藏所有的h1</h1>
+    <h2 id="change_text">点击修改h2内容</h2>
+    <h3 class="mouse_hover">mouse hover</h3>
+    <h4>h4</h4>
+    <h5>h5</h5>
+    <h6>h6</h6>
+    <h1 class="hide_self">单击只隐藏当前的h1</h1>
+    <h2 class="change_html">html和text区别</h2>
+    <h3>h3</h3>
+    <h4>h4</h4>
+    <h5>h5</h5>
+    <h6>h6</h6>
+
+    <div class="border" id='div_pp'>
+        <p class="text_index" id="index_p1">p1</p>
+        <p class="text_index">p2</p>
+        <button class="btn_change_text">改变所有 p 元素的文本内容</button>
+    </div>
+    <div class="empty"></div>
+    <div class="border">
+        <input class="input_change_value" value="初始内容"></input>
+        <button class="btn_change_input">改变 input 的内容</button>
+    </div>
+    <div class="border">
+        <button class="btn_fade_in">fadeIn</button>
+        <button class="btn_fade_out">fadeOut</button>
+        <div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+        <div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div><br>
+        <div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+    </div>
+    <div class="border">
+        <button class="btn_side_down">点击我滑下面板</button>
+        <div id="panel">Hello world!</div>
+    </div>
+    <div class="border">
+        <button class="btn_animate">开始动画</button>
+        <div class="animate" style="background:#98bf21;height:100px;width:100px;position:absolute;">
+        </div>
+    </div>
+    <div class="border">
+        <button class="btn_animate_queue">开始动画</button>
+        <div class="animate_queue" style="background:#98bf21;height:100px;width:100px;">
+        </div>
+    </div>
+    <div class="border" id="div_p1">
+        <button class="btn_chaining">开始动画</button>
+        <p id="p1">Hell,World!!</p>
+    </div>
+    <div class="border">
+        <p><a href="//www.runoob.com" id="runoob">菜鸟教程</a></p>
+        <button class="btn_attr">修改 href 和 title</button>
+    </div>
+    <div class="border" id="div_li">
+        <p id="p3">这是一个段落。</p>
+        <ol id="ol2">
+            <li>列表 1</li>
+            <li>列表 2</li>
+            <li>列表 3</li>
+        </ol>
+        <button class="btn_element_insert">添加元素</button>
+    </div>
+    <div class="border">
+        <button class="btn_append_text" onclick="appendText()">添加元素</button>
+        <button class="btn_remove">删除元素</button>
+        <p class="remove">remove</p>
+    </div>
+    <div class="border">
+        <button class="btn_add_class">添加css类</button>
+        <p id="blueb" class="blueb">good</p>
+    </div>
+    <button class="btn_filter">filter</button>
+    <button class="btn_parent">parent</button>
+    <button class="btn_children">children</button>
+
+</body>
+
+<script src="js/test.jquery.js"></script>
+
+</html>
