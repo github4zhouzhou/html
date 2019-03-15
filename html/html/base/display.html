@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!-- 声明页面为 HTML5 文档 -->
+
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <!-- 除了 title head里的其他元素对页面访问者来说都是不可见的 -->
+    <title>display属性</title>
+    <script src="../../js/lib/jquery-3.3.1.js"></script>
+
+    <style>
+        .div_none .hidden {
+            visibility: hidden;
+        }
+        
+        .div_none .show {
+            visibility: visible;
+        }
+        
+        #nav {
+            width: 500px;
+            height: 40px;
+            background: #ccc;
+            margin: 0 auto;
+        }
+        
+        #nav ul {
+            background: #aaa
+        }
+        
+        #nav ul li {
+            float: left;
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        #nav ul li:hover {
+            background: #cea;
+        }
+        
+        #nav ul li ul li {
+            float: none;
+        }
+        /*关键一：将二级菜单设置为display：none;*/
+        
+        #nav ul li ul {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            display: none;
+        }
+        
+        #nav ul li ul li:hover {
+            background: red;
+        }
+        /* 关键二：在划过二级菜单从属的一级菜单时，设置为display:block; */
+        
+        #nav ul li:hover ul {
+            display: block;
+        }
+        
+        #div_a ul li {
+            float: left;
+            list-style: none;
+        }
+        
+        #div_a a {
+            display: block;
+            width: 30px;
+            height: 30px;
+            background: yellow;
+            margin: 5px;
+            text-decoration: none;
+            text-align: center;
+            line-height: 30px;
+        }
+        
+        #header,
+        #footer {
+            height: 50px;
+            width: 800px;
+            margin: 0 auto;
+            background: #ccc;
+            text-align: center;
+            line-height: 50px;
+        }
+        
+        #content {
+            width: 800px;
+            height: 500px;
+            margin: 0 auto;
+            background: #aaa;
+            font-size: 0;
+        }
+        /* 解决inline元素产生的空白符问题 */
+        
+        #left,
+        #right {
+            display: inline-block;
+            width: 200px;
+            height: 500px;
+            background: #fadaac;
+            font-size: 30px;
+        }
+        
+        #center {
+            display: inline-block;
+            width: 400px;
+            height: 500px;
+            background: #dadada;
+            font-size: 30px;
+        }
+        /* 这里一定要重新设置font-size。 */
+    </style>
+
+</head>
+
+<!--页面的主体，设置需要显示的内容-->
+
+<body>
+    <!-- display: none -->
+    <div id="display_none" class="div_none">
+        <div name="隐藏控件">
+            <div>start</div>
+            <div id="dn_none" style="display: none;">我不但看不见,而且不占用空间</div>
+            <div id="dn_hidden" class="hidden">我只是看不见,但是我还占用空间</div>
+            <div>end</div>
+            <div>
+                <button onclick="onShow1() ">show1</button>
+                <button onclick="onShow2() ">show2</button>
+            </div>
+        </div>
+        <div id="nav">
+            <ul>
+                <li><a href="">首页</a></li>
+                <li class="navmenu"><a href="">汽车</a>
+                    <ul>
+                        <li><a href="#">奥迪</a> </li>
+                        <li><a href="#">道奇</a> </li>
+                    </ul>
+                </li>
+                <li onmouseover="hoverShow(this)" onmouseout="hoverHidden(this)"><a href="">手机</a>
+                    <ul>
+                        <li><a href="#">小米</a> </li>
+                        <li><a href="#">华为</a> </li>
+                    </ul>
+                </li>
+                <li><a href="">联系我们</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- display: inline block inline-block -->
+    <div id="display_block" style="margin: 40px 0;">
+        <div>
+            <p><b>block 属性</b></p>
+            <ul>
+                <li>占领一整行。若干同级块元素会从上之下依次排列（使用float属性除外）</li>
+                <li>可以设置高度、宽度、各个方向外补丁（margin）以及各个方向的内补丁（padding）</li>
+                <li>当宽度（width）缺省时，它的宽度时其容器的100%，除非我们给它设定了固定的宽度</li>
+                <li>块级元素中可以容纳其他块级元素或行内元素。</li>
+                <li>常见的块级元素由 p div h1 li 等等。</li>
+                <li>块级元素的display属性值默认为block。</li>
+            </ul>
+        </div>
+        <div>
+            <p><b>inline 属性</b></p>
+            <ul>
+                <li>它不会单独占据一整行，而是只占领自身的宽度和高度所在的空间。若干同级行内元素会从左到右（即某个行内元素可以和其他行内元素共处一行），从上到下依次排列。</li>
+                <li>行内元素不可以设置高度、宽度，其高度一般由其字体的大小来决定，其宽度由内容的长度控制。</li>
+                <li>行内元素只能设置左右的margin值和左右的padding值，而不能设置上下的margin值和上下的padding值。因此我们可以通过设置左右的padding值来改变行内元素的宽度</li>
+                <li>常见的行内元素由 a em img等等</li>
+                <li>行内元素一般不可以包含块级元素</li>
+                <li>行级元素的display属性值默认为inline。</li>
+            </ul>
+        </div>
+        <div id="div_a">
+            <p><b>改变 a 的 inline 属性</b></p>
+            <ul>
+                <li><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">4</a></li>
+                <li><a href="">5</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- display: inline block inline-block -->
+    <div id="display_inline_block" style="margin: 80px 0;">
+        <div>
+            <p><b>inline-block 属性</b></p>
+            <ul>
+                <li>占既具有block元素可以设置width和height属性的特性，又保持了inline元素不换行的特性</li>
+            </ul>
+        </div>
+        <div id="header">我是header</div>
+        <div id="content">
+            <div id="left">我是left</div>
+            <div id="center">我是center</div>
+            <div id="right">我是right</div>
+        </div>
+        <div id="footer">我是footer</div>
+    </div>
+
+</body>
+
+<script>
+    function onShow1() {
+        var divNone = document.getElementById("dn_none");
+        var styleVal = divNone.getAttribute("style");
+        if (styleVal == "display: none;") {
+            // 重新设置 style
+            divNone.setAttribute("style", "display: block;");
+            // 追加 style
+            divNone.setAttribute("style", divNone.getAttribute("style") + "color: #ff0000;");
+        } else {
+            divNone.setAttribute("style", "display: none;");
+        }
+        console.log(divNone.getAttribute("style"));
+    }
+
+    function onShow2() {
+        var divHidden = document.getElementById("dn_hidden");
+        console.log(divHidden.className);
+        console.log(divHidden.classList);
+        if (divHidden.className == "hidden") {
+            divHidden.classList.remove("hidden");
+            divHidden.classList.add("show");
+        } else {
+            divHidden.className = "hidden";
+        }
+    }
+
+    function hoverShow(li) {
+        var ul = li.getElementsByTagName("ul")[0];
+        // 关建二：在li这个对象内查询标签名为ul的标签，由于二级标签只有一个，所以索引为0即可。
+        ul.style.display = "block";
+        // 关键三：当鼠标划过li时，其子元素ul标签的display为block
+    }
+
+    function hoverHidden(li) {
+        var ul = li.getElementsByTagName("ul")[0];
+        ul.style.display = "none";
+        // 关键四：当鼠标划出li时，其子元素ul的display为none
+    }
+
+    $(".navmenu").mouseover(function() {
+        // $(this).children("ul").show();
+    })
+
+    $(".navmenu").mouseout(function() {
+        // $(this).children("ul").hide();
+    })
+</script>
+
+</html>

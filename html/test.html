@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- 声明页面为 HTML5 文档 -->
+
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <!-- 除了 title head里的其他元素对页面访问者来说都是不可见的 -->
+    <title>测试</title>
+    <script src="js/lib/jquery-3.3.1.min.js"></script>
+
+    <style>
+
+    </style>
+
+</head>
+
+<!--页面的主体，设置需要显示的内容-->
+
+<body>
+
+    <div class="yjl_article">
+        <h1>欧元/美元已经构成清晰楔形 数周内或迎来重大破局</h1>
+        <h3><span>文/浚滨</span><span>2018-07-22 15:23:46</span><span>来源:FX168财经网</span></h3>
+        <p>
+            <div class=TRS_Editor>
+                <p align="justify"><strong>FX168财经报社(香港)讯</strong> DailyFX分析师周六(7月21日)表示，欧元/美元目前看似陷入了一个很微妙的境地，上行方向并没有获得足够的支撑能够发起稳固反弹，而下行方向似乎也没有足够的动能可以将其打压至长期关键支撑区域(即2015至2016年区间顶部)。</p>
+                <p align="justify">目前技术图上已经展现出一个清晰的楔形，但同时存在上行和下跌的可能，这就需要看欧元/美元后续的动态，不过一旦本周尾端的反弹无法延续并下行跌破楔形底部，就有可能再度下探1.1500关键支撑区域。</p>
+                <p align="center"><img width="600" height="264" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-top-width: 0px" alt="" src="http://forex.fx168.com/1807/W020180722554241178535.jpg" OLDSRC="W020180722554241178535.jpg"
+                    /></p>
+                <p align="center">(欧元/美元日线图，来源：DailyFX、FX168财经网)</p>
+                <p align="justify">尽管如此，无论汇价如何突破楔形区域，欧元/美元最终可能都会正式测试1.1500关键支撑区域，因即使欧元能够延续反弹，上行动能也会随着美元的重新走强而逐渐衰退，而跌破1.15则将预示着欧元破局大行情的出现。</p>
+                <p align="justify">欧元/美元已经维持宽幅区间震荡了不短的一段时间，相信破局的出现已经非常接近，可能就在未来数周之内。</p>
+            </div>
+        </p>
+    </div>
+    <div style="padding: 60px;">
+        <div>
+            <h2>grpc查询接口</h2>
+
+            <form id="grpc_query_form">
+                <div>
+                    <label>函数：</label>
+                    <select id="grpc_func" name="grpc_func" style="width: 200px; height: 30px;"> 
+                        <option value="GetSymbolSummaryInfo" selected>GetSymbolSummaryInfo</option>
+                        <option value="GetSymbolSummaryInfoList">GetSymbolSummaryInfoList</option>
+                        <option value="GetSecuritySummaryInfo">GetSecuritySummaryInfo</option>
+                        <option value="GetSecuritySummaryInfoList">GetSecuritySummaryInfoList</option>
+                        <option value="GetUserInfo">GetUserInfo</option>
+                        <option value="GetUserInfoList">GetUserInfoList</option>
+                        <option value="GetUserBasicInfo">GetUserBasicInfo</option>
+                        <option value="GetGlobalDailyInfo">GetUserInfoList</option>
+                        <option value="GetGlobalInfo">GetUserBasicInfo</option>
+                    </select>
+                </div>
+                <div style="margin: 20px 0;">
+                    <label for="request">参数：</label>
+                    <input type="text" name="request" id="request" style="width:400px;height:20px; padding: 5px 10px;" placeholder="key-value形式，如：symbol=EURUSD;login=681914130">
+                </div>
+                <div>
+                    <button id="id_grpc_submit" onclick="gQuery()" type="button">提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+<script>
+    function gQuery() {
+        // 提交表单
+        var form = new FormData(document.getElementById("grpc_query_form"))
+        $.ajax({
+            url: "query",
+            type: "POST",
+            data: form,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                console.log(data)
+            }
+        })
+    }
+</script>
+
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<!-- 声明页面为 HTML5 文档 -->
+
+
+<html>
+<!-- https://blog.csdn.net/u011300580/article/details/56011564 -->
+<!-- https://www.cnblogs.com/ghfjj/p/6529733.html -->
+
+<head>
+    <meta charset="utf-8" />
+    <!-- 除了 title head里的其他元素对页面访问者来说都是不可见的 -->
+    <title>布局</title>
+    <script src="../../js/lib/jquery-3.3.1.js"></script>
+
+    <style>
+        .div_box_small {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            background: #ff0000;
+            color: #ffffff;
+        }
+        
+        .div_box_middle {
+            width: 60px;
+            height: 60px;
+            margin: 5px;
+            color: #ffffff;
+            background: #00ff00;
+        }
+        
+        .div_box_big {
+            width: 80px;
+            height: 80px;
+            margin: 5px;
+            background: #0000ff;
+            color: #ffffff;
+        }
+        
+        .div_border {
+            margin: 5px;
+            padding: 5px;
+            border: fuchsia solid 1px;
+        }
+        
+        .div_wrap {
+            margin: 5px;
+            padding: 5px;
+            border: fuchsia solid 1px;
+            width: 240px;
+        }
+        
+        .div_justify_content {
+            width: 45%;
+            border: fuchsia solid 1px;
+        }
+        
+        .div_align_items {
+            height: 200px;
+            border: fuchsia solid 1px;
+        }
+        
+        .div_align_content {
+            width: 300px;
+            height: 200px;
+            border: fuchsia solid 1px;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        
+        .div_box_1 {
+            width: 200px;
+            height: 30px;
+            border: 1px solid red;
+        }
+        
+        .div_item {
+            width: 30%;
+            margin: 5px;
+            padding: 5px;
+            border: fuchsia solid 1px;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <!-- flex-direction -->
+    <div id="flex_direction" style="display: flex;">
+        <div class="div_border">
+            <h3>flex-direction: row</h3>
+            <div style="display: flex; flex-direction: row;">
+                <div class="div_box_small">1</div>
+                <div class="div_box_middle">2</div>
+                <div class="div_box_big">3</div>
+            </div>
+        </div>
+
+        <div class="div_border">
+            <h3>flex-direction: row-reverse</h3>
+            <div style="display: flex; flex-direction: row-reverse;">
+                <div class="div_box_small">1</div>
+                <div class="div_box_middle">2</div>
+                <div class="div_box_big">3</div>
+            </div>
+        </div>
+
+        <div class="div_border">
+            <h3>flex-direction: column</h3>
+            <div style="display: flex; flex-direction: column;">
+                <div class="div_box_small">1</div>
+                <div class="div_box_middle">2</div>
+                <div class="div_box_big">3</div>
+            </div>
+        </div>
+
+        <div class="div_border">
+            <h3>flex-direction: column-reverse</h3>
+            <div style="display: flex; flex-direction: column-reverse;">
+                <div class="div_box_small">1</div>
+                <div class="div_box_middle">2</div>
+                <div class="div_box_big">3</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- flex-wrap -->
+    <div id="flex_wrap" style="display: flex;">
+        <div class="div_wrap">
+            <h3>flex-wrap: nowrap</h3>
+            <div style="display: flex; flex-wrap: nowrap;">
+                <div class="div_box_middle"></div>
+                <div class="div_box_middle"></div>
+                <div class="div_box_middle"></div>
+                <div class="div_box_middle"></div>
+                <div class="div_box_middle"></div>
+            </div>
+        </div>
+        <div class="div_wrap">
+            <h3>flex-wrap: wrap</h3>
+            <div style="display: flex; flex-wrap: wrap;">
+                <div class="div_box_middle">1</div>
+                <div class="div_box_middle">2</div>
+                <div class="div_box_middle">3</div>
+                <div class="div_box_middle">4</div>
+                <div class="div_box_middle">5</div>
+            </div>
+        </div>
+        <div class="div_wrap">
+            <h3>flex-wrap: wrap-reverse</h3>
+            <div style="display: flex; flex-wrap: wrap-reverse;">
+                <div class="div_box_middle">1</div>
+                <div class="div_box_middle">2</div>
+                <div class="div_box_middle">3</div>
+                <div class="div_box_middle">4</div>
+                <div class="div_box_middle">5</div>
+            </div>
+        </div>
+    </div>
+
+    <!--  justify-content -->
+    <div id="div_justify_content" style="display: flex; flex-wrap: wrap;">
+        <div class="div_justify_content">
+            <h3>justify-content: flex-start</h3>
+            <div style="display: flex; justify-content: flex-start;">
+                <div class="div_box_small">1</div>
+                <div class="div_box_middle">2</div>
+                <div class="div_box_big">3</div>
+            </div>
+        </div>
+        <div class="div_justify_content">
+            <h3>justify-content: flex-end</h3>
+            <div style="display: flex; justify-content: flex-end;">
+                <div class="div_box_small">1</div>
+                <div class="div_box_middle">2</div>
+                <div class="div_box_big">3</div>
+            </div>
+        </div>
+        <div class="div_justify_content">
+            <h3>justify-content: center</h3>
+            <div style="display: flex; justify-content: center;">
+                <div class="div_box_small">1</div>
+                <div class="div_box_middle">2</div>
+                <div class="div_box_big">3</div>
+            </div>
+        </div>
+        <div class="div_justify_content">
+            <h3>justify-content: space-between</h3>
+            <div style="display: flex; justify-content: space-between;">
+                <div class="div_box_small">1</div>
+                <div class="div_box_middle">2</div>
+                <div class="div_box_big">3</div>
+            </div>
+        </div>
+        <div class="div_justify_content">
+            <h3>justify-content: space-around</h3>
+            <div style="display: flex; justify-content: space-around;">
+                <div class="div_box_small">1</div>
+                <div class="div_box_middle">2</div>
+                <div class="div_box_big">3</div>
+            </div>
+        </div>
+    </div>
+
+    <!--  align-items -->
+    <div id="div_align_items" style="display: flex; flex-wrap: wrap;">
+        <div class="div_align_items">
+            <h3>align-items: flex-start</h3>
+            <div style="display: flex; align-items: flex-start;">
+                <div class="div_box_small">1</div>
+                <div class="div_box_middle">2</div>
+                <div class="div_box_big">3</div>
+            </div>
+        </div>
+        <div class="div_align_items">
+            <h3>align-items: flex-end</h3>
+            <div style="display: flex; align-items: flex-end;">
+                <div class="div_box_small">1</div>
+                <div class="div_box_middle">2</div>
+                <div class="div_box_big">3</div>
+            </div>
+        </div>
+        <div class="div_align_items">
+            <h3>align-items: center</h3>
+            <div style="display: flex; align-items: center;">
+                <div class="div_box_small">1</div>
+                <div class="div_box_middle">2</div>
+                <div class="div_box_big">3</div>
+            </div>
+        </div>
+        <div class="div_align_items">
+            <h3>justify-content: baseline</h3>
+            <div style="display: flex; justify-content: baseline;">
+                <div class="div_box_small">1</div>
+                <div class="div_box_middle">2</div>
+                <div class="div_box_big">3</div>
+            </div>
+        </div>
+        <div class="div_align_items">
+            <h3>justify-content: stretch</h3>
+            <div style="display: flex; justify-content: stretch;">
+                <div class="div_box_small">1</div>
+                <div class="div_box_middle">2</div>
+                <div class="div_box_big">3</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- align-content -->
+    <div id="div_align_content" style="display: flex; flex-wrap: wrap;">
+        <div>
+            <h3>align-content: space-between</h3>
+            <div style="display: flex; align-content: space-between; flex-wrap: wrap;width: 300px;height: 200px;border: fuchsia solid 1px;">
+                <div class="div_box_1">1</div>
+                <div class="div_box_1">2</div>
+                <div class="div_box_1">3</div>
+            </div>
+        </div>
+        <div>
+            <h3>align-items: space-between</h3>
+            <div style="display: flex; align-items: space-between; flex-wrap: wrap;width: 300px;height: 200px;border: fuchsia solid 1px;">
+                <div class="div_box_1">1</div>
+                <div class="div_box_1">2</div>
+                <div class="div_box_1">3</div>
+            </div>
+        </div>
+
+        <div>
+            <h3>align-content: center</h3>
+            <div style="display: flex; align-content: center; flex-wrap: wrap;width: 300px;height: 200px;border: fuchsia solid 1px;">
+                <div class="div_box_1">1</div>
+                <div class="div_box_1">2</div>
+                <div class="div_box_1">3</div>
+            </div>
+        </div>
+        <div>
+            <h3>align-items: center</h3>
+            <div style="display: flex; align-items: center; flex-wrap: wrap;width: 300px;height: 200px;border: fuchsia solid 1px;">
+                <div class="div_box_1">1</div>
+                <div class="div_box_1">2</div>
+                <div class="div_box_1">3</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- order -->
+    <div id="div_item" style="display: flex; flex-wrap: wrap;">
+        <div class="div_item">
+            <h3>item: order</h3>
+            <div style="display: flex;">
+                <div style="width: 40px;height: 40px;margin: 5px;background: #ff0000;color: #ffffff; order: 2;">2</div>
+                <div style="width: 40px;height: 40px;margin: 5px;background: #ff0000;color: #ffffff; order: 1;">1</div>
+                <div style="width: 40px;height: 40px;margin: 5px;background: #ff0000;color: #ffffff; order: 3;">3</div>
+            </div>
+        </div>
+        <div class="div_item">
+            <h3>item: flex-grow</h3>
+            <div style="display: flex;">
+                <div style="width: 40px;height: 40px;margin: 5px;background: #ff0000;color: #ffffff; flex-grow: 1;">1</div>
+                <div style="width: 40px;height: 40px;margin: 5px;background: #ff0000;color: #ffffff; flex-grow: 2;">2</div>
+                <div style="width: 40px;height: 40px;margin: 5px;background: #ff0000;color: #ffffff; flex-grow: 1;">1</div>
+            </div>
+        </div>
+        <div class="div_item">
+            <h3>item: flex-shrink</h3>
+            <div style="display: flex;">
+                <div style="width: 120px;height: 40px;margin: 5px;background: #ff0000;color: #ffffff; flex-shrink: 1;">1</div>
+                <div style="width: 120px;height: 40px;margin: 5px;background: #ff0000;color: #ffffff; flex-shrink: 0;">0</div>
+                <div style="width: 120px;height: 40px;margin: 5px;background: #ff0000;color: #ffffff; flex-shrink: 1;">1</div>
+                <div style="width: 120px;height: 40px;margin: 5px;background: #ff0000;color: #ffffff; flex-shrink: 2;">2</div>
+                <div style="width: 120px;height: 40px;margin: 5px;background: #ff0000;color: #ffffff; flex-shrink: 0.5;">0.5</div>
+                <div style="width: 120px;height: 40px;margin: 5px;background: #ff0000;color: #ffffff; flex-shrink: 2;">2</div>
+            </div>
+        </div>
+        <div class="div_item">
+            <h3>item: align-self</h3>
+            <div style="display: flex;height: 200px;border: forestgreen solid 1px;">
+                <div style="width: 40px;height: 40px;margin: 5px;background: #ff0000;color: #ffffff; align-self: center;">1</div>
+                <div style="width: 40px;height: 40px;margin: 5px;background: #ff0000;color: #ffffff; align-self: flex-start;">2</div>
+                <div style="width: 40px;height: 40px;margin: 5px;background: #ff0000;color: #ffffff; align-self: flex-end;">3</div>
+                <div style="width: 40px;margin: 5px;background: #ff0000;color: #ffffff; align-self: stretch;">4</div>
+                <div style="width: 40px;height: 40px;margin: 5px;background: #ff0000;color: #ffffff; align-self: auto;">5</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
